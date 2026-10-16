@@ -1,3 +1,8 @@
 *.backup
 *.bak
 .DS_Store
+*.lcf
+loon/Kelee_Loon_Advanced.conf
+loon/Kelee_Loon_Simple.conf
+loon/Loon_Custom.conf
+loon/Loon_Official_Example.conf

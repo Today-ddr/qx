@@ -2,9 +2,18 @@
 
 自用 Quantumult X 配置文件（去广告 + AIGC/Gemini + 节点位置显示 + DNS 深度优化与路由器内网防劫持）。
 
-## 配置文件
+## 配置文件与客户端支持
 
-- **[QuantumultX_Custom.conf](./QuantumultX_Custom.conf)**：定制综合终极配置文件
+- **Quantumult X 配置**：
+  - **[QuantumultX_Custom.conf](./QuantumultX_Custom.conf)**：定制综合终极配置文件
+- **Loon 配置（新）**：
+  - **[loon/ 目录](./loon/)**：Loon 专属配置中心
+  - **[loon/Kelee_Custom.conf](./loon/Kelee_Custom.conf)**：Loon 定制终极配置文件（可莉基底+QX全同构）
+  - **[loon/README.md](./loon/README.md)**：Loon 导入指引与推荐资源
+- **Surge 5 配置（新）**：
+  - **[surge/ 目录](./surge/)**：Surge 5 专属配置中心
+  - **[surge/Surge_Custom.conf](./surge/Surge_Custom.conf)**：Surge 5 定制终极配置文件
+  - **[surge/README.md](./surge/README.md)**：Surge 导入指引与架构说明
 
 ---
 
