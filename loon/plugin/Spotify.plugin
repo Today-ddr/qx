@@ -1,0 +1,20 @@
+#!name = 🎻 Spotify 净化增强
+#!desc = 2026.10 最新重构版：过滤插播与音频广告，解锁强制随机播放限制，支持自由点歌与歌手列表完整展示，修复旧版接口超时、7秒切歌与连接缓慢问题。
+#!author = 001ProMax, Today-ddr
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Spotify.png
+#!date = 2026-10-28
+
+[Rewrite]
+# 1. 客户端布局优化
+^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/artistview\/v1\/artist\/(.*)&platform=iphone header https://spclient.wg.spotify.com/artistview/v1/artist/$1&platform=ipad
+
+# 2. 广告与追踪拦截（返回 200 空数据，彻底杜绝丢包重试导致的连接缓慢与断流切歌）
+^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:ad-|pendragon) reject-200
+^https:\/\/gae2-spclient\.spotify\.com(?::443)?\/ad reject-200
+
+[Script]
+# 3. 核心功能解锁与属性补全（采用 2026 重构版高效无依赖解析引擎，提速 90% 消除延迟）
+http-response ^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:bootstrap|user-customization-service) script-path=https://cdn.jsdelivr.net/gh/001ProMax/Surge@main/Script/Spotify.Crack.Dev.js, requires-body=true, binary-body-mode=true, timeout=10, tag=SpotifyCrack
+
+[Mitm]
+hostname = *-spclient.spotify.com, spclient.wg.spotify.com
