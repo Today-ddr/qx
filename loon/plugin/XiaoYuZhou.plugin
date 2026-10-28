@@ -1,0 +1,23 @@
+#!name = 🪐 小宇宙去广告净化
+#!desc = 2026 最新增强版：彻底去除开屏广告（封杀 HTTPDNS 直连绕过与本地缓存回退）、首页 Banner 推广、搜索框营销热词与 AI 总结。
+#!author = ddgksf2013, 奶思, Today-ddr
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/CosmosPodcast.png
+#!date = 2026-10-28
+
+[Rewrite]
+# 1. 彻底移除开屏广告（覆盖域名与所有直连 IP，使用 reject-200 避免客户端加载本地磁盘缓存）
+^https?:\/\/(?:api\.xiaoyuzhoufm\.com|118\.31\.12[35]\.\d+|112\.124\.203\.\d+|47\.57\.18[12]\.\d+)\/v\d\/(?:flash|flash-screen|splash) reject-200
+
+# 2. 移除搜索框营销热词、搜索填词与每日推荐
+^https?:\/\/(?:api\.xiaoyuzhoufm\.com|118\.31\.12[35]\.\d+|112\.124\.203\.\d+|47\.57\.18[12]\.\d+)\/v\d\/search\/(?:get|get-express|get-preset) reject-200
+^https?:\/\/(?:api\.xiaoyuzhoufm\.com|118\.31\.12[35]\.\d+|112\.124\.203\.\d+|47\.57\.18[12]\.\d+)\/v\d\/category\/(?:list-daily-suggestion|get) reject-200
+
+# 3. 移除单集总结与 AI 总结
+^https?:\/\/(?:api\.xiaoyuzhoufm\.com|118\.31\.12[35]\.\d+|112\.124\.203\.\d+|47\.57\.18[12]\.\d+)\/v\d\/ai reject-dict
+
+# 4. 首页信息流与探索净化（过滤 Banner 与商业推广卡片）
+^https?:\/\/(?:api\.xiaoyuzhoufm\.com|118\.31\.12[35]\.\d+|112\.124\.203\.\d+|47\.57\.18[12]\.\d+)\/v\d\/discovery-feed\/list response-body-json-jq '.data |= map(select(.type != "DISCOVERY_HEADER" and .type != "DISCOVERY_BANNER"))'
+^https?:\/\/(?:api\.xiaoyuzhoufm\.com|118\.31\.12[35]\.\d+|112\.124\.203\.\d+|47\.57\.18[12]\.\d+)\/v\d\/(?:related-episode|operation-resource)\/list response-body-json-jq '.data = []'
+
+[Mitm]
+hostname = api.xiaoyuzhoufm.com, 118.31.123.175, 112.124.203.116, 118.31.125.171, 47.57.181.112, 47.57.182.96
