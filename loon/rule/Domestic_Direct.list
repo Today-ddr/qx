@@ -1,13 +1,67 @@
 # NAME: Domestic_Direct
 # AUTHOR: Today-ddr
-# DESC: 国内高频应用直连白名单（挂载于 [Remote Rule] 中 AdvertisingLite_Domain 广告拦截之后，确保广告/开屏 SDK 子域名先被拦截，再放行主域直连）
+# DESC: 国内高频应用直连白名单（覆盖钉钉/企微/飞书/腾讯会议/美团/京东/淘宝阿里/拼多多/抖音/微信/小红书等核心域名，确保 100% 纯净直连）
 # USAGE: https://raw.githubusercontent.com/Today-ddr/qx/main/loon/rule/Domestic_Direct.list, policy=DIRECT
+
+# > 钉钉 / 阿里办公与企业安全风控核心
+DOMAIN-SUFFIX,dingtalk.com
+DOMAIN-SUFFIX,dingtalkapps.com
+DOMAIN-SUFFIX,dingtalk.net
+DOMAIN-SUFFIX,ddurl.to
+DOMAIN-SUFFIX,alibabachengdun.com
+DOMAIN-SUFFIX,laiwang.com
+DOMAIN-SUFFIX,lwurl.to
+DOMAIN-SUFFIX,alibaba-inc.com
+DOMAIN-SUFFIX,alibabausercontent.com
+DOMAIN-SUFFIX,aliyun.com
+DOMAIN-SUFFIX,aliyuncs.com
+DOMAIN-SUFFIX,alikunlun.com
+
+# > 企业微信 / 腾讯会议 / 飞书办公
+DOMAIN-SUFFIX,wework.qq.com
+DOMAIN-SUFFIX,work.weixin.qq.com
+DOMAIN-SUFFIX,meeting.qq.com
+DOMAIN-SUFFIX,meeting.tencent.com
+DOMAIN-SUFFIX,wemeet.qq.com
+DOMAIN-SUFFIX,wemeet.tencent.com
+DOMAIN-SUFFIX,tencentmeeting.com
+DOMAIN-SUFFIX,tencentmeeting.cn
+DOMAIN-SUFFIX,voovmeeting.com
+DOMAIN-SUFFIX,trtc.tencent-cloud.com
+DOMAIN-SUFFIX,feishu.cn
+DOMAIN-SUFFIX,feishucdn.com
+DOMAIN-SUFFIX,larksuite.com
+DOMAIN-SUFFIX,larksuitecdn.com
+
+# > 美团 / 大众点评全系
+DOMAIN-SUFFIX,meituan.com
+DOMAIN-SUFFIX,meituan.net
+DOMAIN-SUFFIX,dianping.com
+DOMAIN-SUFFIX,dpfile.com
+DOMAIN-SUFFIX,sankuai.com
+
+# > 京东全系
+DOMAIN-SUFFIX,jd.com
+DOMAIN-SUFFIX,360buyimg.com
+DOMAIN-SUFFIX,360buy.com
+DOMAIN-SUFFIX,3.cn
+DOMAIN-SUFFIX,jd.hk
+DOMAIN-SUFFIX,jingdong.com
+DOMAIN-SUFFIX,jdl.com
+DOMAIN-SUFFIX,jddj.com
+DOMAIN-SUFFIX,jdpay.com
+DOMAIN-SUFFIX,jdcloud.com
+DOMAIN-SUFFIX,jcloud-cdn.com
+DOMAIN-SUFFIX,jcloudimg.com
+DOMAIN-SUFFIX,qianxun.com
+
 # > 拼多多全系
 DOMAIN-SUFFIX,pinduoduo.com
 DOMAIN-SUFFIX,pinduoduo.net
 DOMAIN-SUFFIX,yangkeduo.com
 DOMAIN-SUFFIX,pddpic.com
 DOMAIN-SUFFIX,pddugc.com
+
 # > 淘宝 / 天猫 / 阿里 / 支付宝 / 菜鸟 / 饿了么
 DOMAIN-SUFFIX,taobao.com
 DOMAIN-SUFFIX,tmall.com
@@ -21,17 +75,14 @@ DOMAIN-SUFFIX,cainiao.com
 DOMAIN-SUFFIX,ele.me
 DOMAIN-SUFFIX,elemecdn.com
 DOMAIN-SUFFIX,fliggy.com
-# > 美团 / 大众点评
-DOMAIN-SUFFIX,meituan.com
-DOMAIN-SUFFIX,meituan.net
-DOMAIN-SUFFIX,dianping.com
-DOMAIN-SUFFIX,dpfile.com
-DOMAIN-SUFFIX,sankuai.com
-# > 抖音 / 今日头条 / 字节跳动国内核心（补齐 snssdk.com 等关键 API 域名）
+
+# > 抖音 / 今日头条 / 字节跳动国内核心
 DOMAIN-SUFFIX,douyin.com
 DOMAIN-SUFFIX,douyincdn.com
 DOMAIN-SUFFIX,douyinpic.com
 DOMAIN-SUFFIX,douyinvod.com
+DOMAIN-SUFFIX,douyinliving.com
+DOMAIN-SUFFIX,iesdouyin.com
 DOMAIN-SUFFIX,snssdk.com
 DOMAIN-SUFFIX,amemv.com
 DOMAIN-SUFFIX,byteimg.com
@@ -40,6 +91,8 @@ DOMAIN-SUFFIX,pstatp.com
 DOMAIN-SUFFIX,toutiao.com
 DOMAIN-SUFFIX,ixigua.com
 DOMAIN-SUFFIX,zjcdn.com
+DOMAIN-SUFFIX,zijieapi.com
+
 # > 小红书 / 微博 / 知乎 / 快手 / 得物 / 唯品会 / 什么值得买 / 酷安
 DOMAIN-SUFFIX,xiaohongshu.com
 DOMAIN-SUFFIX,xhscdn.com
@@ -58,6 +111,7 @@ DOMAIN-SUFFIX,appsimg.com
 DOMAIN-SUFFIX,smzdm.com
 DOMAIN-SUFFIX,zdmimg.com
 DOMAIN-SUFFIX,coolapk.com
+
 # > 微信核心支付与静态资源 / 高德 / 滴滴 / 携程 / 12306 / 百度 / 网易 / 小米 / 华为 / WPS
 DOMAIN-SUFFIX,weixin.qq.com
 DOMAIN-SUFFIX,wx.qq.com
